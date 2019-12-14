@@ -30,4 +30,20 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
 fi
-alias config='/usr/bin/git --git-dir=/home/shane/Documents/Dot-Files --work-tree=/home/shane'
+
+alias p="sudo pacman"
+alias g=git
+alias v=nvim
+alias cl=clear
+alias eterm="nvim ~/.config/termite/config"
+alias ei3="nvim ~/.config/i3/config"
+alias epb="nvim ~/.config/polybar/config"
+alias ezs="nvim ~/.zshrc"
+alias ev="nvim ~/.vimrc"
+alias sdn="shutdown now"
+alias y=yadm
+alias ys="yadm status"
+alias ya="yadm add"
+alias yc="yadm commit -m"
+alias sz="source ~/.zshrc"
+alias rb="reboot"
