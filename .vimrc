@@ -20,6 +20,17 @@
 
 " Plugins {{{
 
+call plug#begin()
+    Plug 'potatoesmaster/i3-vim-syntax'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mhinz/vim-signify'
+    Plug 'junegunn/fzf'
+    Plug 'w0rp/ale'
+call plug#end()
 
 " }}}
 
@@ -39,6 +50,20 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=0 smarttab
 " syntax highlighting
 syntax on
 
+" Update files on change
+set autoread
+
+" Save edit history between sessions
+set undofile
+set undodir=~/.vim/undodir
+
+" Disable line wrapping
+set nowrap
+
+"Save current buffer
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+
 " remove sounds effects
 set noerrorbells
 set visualbell
@@ -55,6 +80,10 @@ set signcolumn=yes
 
 " Highlight line the cursor is on
 set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303030 ctermbg=238
 
 " }}} 
 
@@ -63,6 +92,9 @@ set cursorline
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
 
+" Remove results found using '/'
+nnoremap <esc> :noh<return><esc>
+
 " Don't waste time holding shift for commands
 map ; :
 noremap ;; ;
@@ -70,6 +102,9 @@ noremap ;; ;
 " Jump to start and end of line easier
 nnoremap H ^
 nnoremap L $
+
+" Exit insert mode by quickly pressing j twice
+inoremap jj <esc>
 
 " }}}
 
