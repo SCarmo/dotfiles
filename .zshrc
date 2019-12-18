@@ -31,6 +31,9 @@ if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
 fi
 
+# Use pywal colour scheme
+(cat ~/.cache/wal/sequences &)
+
 alias p="sudo pacman"
 alias g=git
 alias v=nvim
