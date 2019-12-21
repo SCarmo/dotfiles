@@ -1,16 +1,16 @@
-"            $$$$$                           
-"            $:::$                           
+"            $$$$$
+"            $:::$
 "        $$$$$:::$$$$$$         CCCCCCCCCCCCC
 "      $$::::::::::::::$     CCC::::::::::::C
 "     $:::::$$$$$$$::::$   CC:::::::::::::::C
 "     $::::$       $$$$$  C:::::CCCCCCCC::::C
 "     $::::$             C:::::C       CCCCCC
-"     $::::$            C:::::C              
-"     $:::::$$$$$$$$$   C:::::C              
-"      $$::::::::::::$$ C:::::C              
-"        $$$$$$$$$:::::$C:::::C              
-"                 $::::$C:::::C              
-"                 $::::$C:::::C              
+"     $::::$            C:::::C
+"     $:::::$$$$$$$$$   C:::::C
+"      $$::::::::::::$$ C:::::C
+"        $$$$$$$$$:::::$C:::::C
+"                 $::::$C:::::C
+"                 $::::$C:::::C
 "     $$$$$       $::::$ C:::::C       CCCCCC
 "     $::::$$$$$$$:::::$  C:::::CCCCCCCC::::C
 "     $::::::::::::::$$    CC:::::::::::::::C
@@ -22,6 +22,7 @@
 
 call plug#begin()
     Plug 'potatoesmaster/i3-vim-syntax'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'nathanaelkane/vim-indent-guides'
@@ -30,6 +31,7 @@ call plug#begin()
     Plug 'mhinz/vim-signify'
     Plug 'junegunn/fzf'
     Plug 'w0rp/ale'
+    Plug 'alfredodeza/pytest.vim'
 call plug#end()
 
 " }}}
@@ -63,6 +65,7 @@ set nowrap
 "Save current buffer
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>e :wq<CR>
 
 " remove sounds effects
 set noerrorbells
@@ -85,7 +88,14 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303030 ctermbg=238
 
-" }}} 
+" Keep a buffer of 10 lines/columns between cursor and edge when scrolling
+set scrolloff=10
+set sidescrolloff=10
+
+" Automatically deletes all trailing whitespace on save.
+autocmd BufWritePre * %s/\s\+$//e
+
+" }}}
 
 " Custom Mappings {{{
 
@@ -105,6 +115,21 @@ nnoremap L $
 
 " Exit insert mode by quickly pressing j twice
 inoremap jj <esc>
+inoremap kk <esc>
+
+" Clipboard functionality (paste from system)
+vnoremap  <leader>y "+y
+nnoremap  <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+" Kill the arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
 
 " }}}
 
@@ -119,7 +144,6 @@ nnoremap , za
 
 " VIMRC {{{
 
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 
 " }}}
