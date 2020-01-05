@@ -32,6 +32,8 @@ call plug#begin()
     Plug 'junegunn/fzf'
     Plug 'w0rp/ale'
     Plug 'alfredodeza/pytest.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+    Plug 'lervag/vimtex'
 call plug#end()
 
 " }}}

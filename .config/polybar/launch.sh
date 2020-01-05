@@ -8,4 +8,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar
 echo "---" | tee -a /tmp/polybar.log
+sleep 2
 polybar i3 >>/tmp/polybar.log &
