@@ -42,8 +42,8 @@ bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# shortcut for firefox
-bindsym $mod+C exec firefox
+# shortcut for brave
+bindsym $mod+C exec brave
 
 # start a terminal
 bindsym $mod+Return exec $term
