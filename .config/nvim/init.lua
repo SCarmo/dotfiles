@@ -1,0 +1,20 @@
+-- Basic Neovim settings
+vim.opt.number = true             -- Enable line numbers
+vim.opt.relativenumber = true     -- Enable relative line numbers
+vim.opt.tabstop = 4               -- Number of spaces a tab represents
+vim.opt.shiftwidth = 4            -- Number of spaces for each indentation
+vim.opt.expandtab = true          -- Convert tabs to spaces
+vim.opt.smartindent = true        -- Automatically indent new lines
+vim.opt.wrap = false              -- Disable line wrapping
+vim.opt.cursorline = true         -- Highlight the current line
+vim.opt.termguicolors = true      -- Enable 24-bit RGB colors
+
+-- Syntax highlighting and filetype plugins
+vim.cmd('syntax enable')
+vim.cmd('filetype plugin indent on')
+
+-- Leader key
+vim.g.mapleader = ',' -- Comma as the leader key
+vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>q', ':wq<CR>', { noremap = true, silent = true })
+
