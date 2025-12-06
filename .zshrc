@@ -5,6 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSHRC="$HOME/.zshrc"
 export ZSH_ALIASES="$HOME/.oh-my-zsh/custom/aliases.zsh"
+export ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 
 export VIM="/usr/share/nvim"
 export VIM_HOME="$HOME/.config/nvim"
